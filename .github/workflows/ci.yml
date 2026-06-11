@@ -13,21 +13,24 @@ jobs:
   web:
     name: Web (Next.js)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/web
+    env:
+      DATABASE_URL: "postgresql://matrix:matrix@localhost:5432/matrix_makkah?schema=public"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: apps/web/package-lock.json
+          cache-dependency-path: package-lock.json
       - run: npm ci
       - run: npx prisma generate
+        working-directory: apps/web
       - run: npm run lint --if-present
+        working-directory: apps/web
       - run: npm run typecheck --if-present
+        working-directory: apps/web
       - run: npm run build
+        working-directory: apps/web
 
   ml:
     name: ML Service (FastAPI)
