@@ -8,6 +8,11 @@
 
 <br/>
 
+[![CI](https://github.com/Abdulaziz-Alamawi/matrix-smart-makkah/actions/workflows/ci.yml/badge.svg)](https://github.com/Abdulaziz-Alamawi/matrix-smart-makkah/actions/workflows/ci.yml)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAbdulaziz-Alamawi%2Fmatrix-smart-makkah&project-name=matrix-smart-makkah&root-directory=apps%2Fweb)
+
+<br/>
+
 [![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -42,6 +47,7 @@
 - [System Architecture](#-system-architecture)
 - [Technology Stack](#-technology-stack)
 - [Real-Time Monitoring](#-real-time-monitoring)
+- [Live Demo](#-live-demo)
 - [Installation](#-installation)
 - [Deployment Guide](#-deployment-guide)
 - [Folder Structure](#-folder-structure)
@@ -242,6 +248,22 @@ The platform streams a fresh city snapshot every few seconds, emulating a live I
 
 ---
 
+## 🌐 Live Demo
+
+The platform runs fully in the browser using a built-in synthetic IoT data engine — no database or sensor grid required.
+
+| Action | Link |
+|--------|------|
+| **Deploy instantly** | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAbdulaziz-Alamawi%2Fmatrix-smart-makkah&project-name=matrix-smart-makkah&root-directory=apps%2Fweb) |
+| **Run locally** | `cd apps/web && npm install && npm run dev` → http://localhost:3000 |
+| **Full stack** | `docker compose up --build` |
+
+After deploying, open **Command Center** at `/command-center` to explore live dashboards.
+
+📄 Detailed deployment options in **[docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md)**.
+
+---
+
 ## 🚀 Installation
 
 ### Prerequisites
@@ -379,6 +401,8 @@ matrix-smart-makkah/
 - 🧮 **TimescaleDB** — hypertables for high-volume time-series at city scale.
 - 📱 **Mobile companion** — field-operator app for dispatch and inspections.
 - ☁️ **Kubernetes Helm charts** — first-class cloud-native deployment.
+
+See also [CONTRIBUTING.md](./CONTRIBUTING.md) and [SECURITY.md](./SECURITY.md).
 
 ---
 
