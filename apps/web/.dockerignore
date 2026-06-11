@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.env
+.env.local
+npm-debug.log
+*.log
+dev.log
+install.log
+upgrade.log
+upgrade15.log
+README.md
+.DS_Store

@@ -1,0 +1,30 @@
+{
+  "name": "matrix-smart-makkah",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Matrix Smart Makkah — a production-grade Smart City Operating System (AI, IoT, real-time analytics) for Makkah.",
+  "author": "Abdulaziz AlAmawi",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @matrix-makkah/web",
+    "build": "npm run build --workspace @matrix-makkah/web",
+    "start": "npm run start --workspace @matrix-makkah/web",
+    "lint": "npm run lint --workspace @matrix-makkah/web",
+    "ml:dev": "cd services/ml && uvicorn app.main:app --reload --port 8000",
+    "up": "docker compose up --build",
+    "down": "docker compose down"
+  },
+  "keywords": [
+    "smart-city",
+    "artificial-intelligence",
+    "iot",
+    "real-time",
+    "predictive-analytics",
+    "nextjs",
+    "fastapi",
+    "scikit-learn"
+  ]
+}

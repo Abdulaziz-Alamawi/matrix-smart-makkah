@@ -1,0 +1,56 @@
+# Matrix Smart Makkah — Smart City Operating System
+# Full-stack orchestration: PostgreSQL + Web (Next.js) + ML (FastAPI)
+# Author: Abdulaziz AlAmawi
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: matrix-makkah-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: matrix
+      POSTGRES_PASSWORD: matrix
+      POSTGRES_DB: matrix_makkah
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U matrix -d matrix_makkah"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ml:
+    build:
+      context: ./services/ml
+    container_name: matrix-makkah-ml
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  web:
+    build:
+      context: ./apps/web
+    container_name: matrix-makkah-web
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      ml:
+        condition: service_started
+    environment:
+      DATABASE_URL: "postgresql://matrix:matrix@db:5432/matrix_makkah?schema=public"
+      ML_SERVICE_URL: "http://ml:8000"
+      NEXT_PUBLIC_ML_SERVICE_URL: "http://localhost:8000"
+      NODE_ENV: production
+    ports:
+      - "3000:3000"
+
+volumes:
+  pgdata:

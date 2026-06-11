@@ -1,0 +1,248 @@
+// Matrix Smart Makkah — Smart City Operating System
+// Data model for PostgreSQL via Prisma ORM. Author: Abdulaziz AlAmawi
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum BinStatus {
+  ok
+  warning
+  critical
+  offline
+}
+
+enum SegmentStatus {
+  free
+  moderate
+  heavy
+  jam
+}
+
+enum StationStatus {
+  good
+  moderate
+  unhealthy
+  hazardous
+}
+
+enum Severity {
+  info
+  low
+  medium
+  high
+  critical
+}
+
+enum IncidentType {
+  fire
+  flood
+  medical
+  accident
+  structural
+  crowd
+}
+
+enum IncidentStatus {
+  detected
+  dispatched
+  responding
+  resolved
+}
+
+enum ModuleKey {
+  waste
+  transport
+  environment
+  emergency
+}
+
+model District {
+  id         String   @id
+  name       String
+  nameAr     String
+  lat        Float
+  lng        Float
+  population Int
+  createdAt  DateTime @default(now())
+
+  bins         WasteBin[]
+  segments     TrafficSegment[]
+  stations     EnvironmentStation[]
+  incidents    Incident[]
+  alerts       CityAlert[]
+  riskScores   RiskScore[]
+
+  @@map("districts")
+}
+
+model WasteBin {
+  id             String    @id
+  code           String    @unique
+  districtId     String
+  lat            Float
+  lng            Float
+  capacityLiters Int
+  status         BinStatus @default(ok)
+  installedAt    DateTime  @default(now())
+
+  district District       @relation(fields: [districtId], references: [id])
+  readings WasteReading[]
+
+  @@index([districtId])
+  @@map("waste_bins")
+}
+
+model WasteReading {
+  id              BigInt   @id @default(autoincrement())
+  binId           String
+  fillLevel       Float
+  temperatureC    Float
+  batteryPct      Float
+  fillRatePerHour Float
+  predictedFullAt DateTime?
+  recordedAt      DateTime @default(now())
+
+  bin WasteBin @relation(fields: [binId], references: [id])
+
+  @@index([binId, recordedAt])
+  @@map("waste_readings")
+}
+
+model TrafficSegment {
+  id          String   @id
+  name        String
+  districtId  String
+  fromLat     Float
+  fromLng     Float
+  toLat       Float
+  toLng       Float
+  freeFlowKmh Int
+
+  district District          @relation(fields: [districtId], references: [id])
+  readings TrafficReading[]
+
+  @@index([districtId])
+  @@map("traffic_segments")
+}
+
+model TrafficReading {
+  id              BigInt        @id @default(autoincrement())
+  segmentId       String
+  speedKmh        Float
+  congestionIndex Float
+  vehiclesPerHour Int
+  status          SegmentStatus
+  recordedAt      DateTime      @default(now())
+
+  segment TrafficSegment @relation(fields: [segmentId], references: [id])
+
+  @@index([segmentId, recordedAt])
+  @@map("traffic_readings")
+}
+
+model EnvironmentStation {
+  id         String   @id
+  name       String
+  districtId String
+  lat        Float
+  lng        Float
+
+  district District             @relation(fields: [districtId], references: [id])
+  readings EnvironmentReading[]
+
+  @@index([districtId])
+  @@map("environment_stations")
+}
+
+model EnvironmentReading {
+  id           BigInt        @id @default(autoincrement())
+  stationId    String
+  aqi          Int
+  pm25         Float
+  pm10         Float
+  co2          Int
+  noiseDb      Float
+  temperatureC Float
+  humidityPct  Float
+  status       StationStatus
+  recordedAt   DateTime      @default(now())
+
+  station EnvironmentStation @relation(fields: [stationId], references: [id])
+
+  @@index([stationId, recordedAt])
+  @@map("environment_readings")
+}
+
+model Incident {
+  id            String         @id
+  type          IncidentType
+  districtId    String
+  lat           Float
+  lng           Float
+  severity      Severity
+  title         String
+  detail        String
+  status        IncidentStatus @default(detected)
+  responseUnits Int            @default(1)
+  etaMin        Int            @default(0)
+  aiConfidence  Float          @default(0.8)
+  reportedAt    DateTime       @default(now())
+  resolvedAt    DateTime?
+
+  district District @relation(fields: [districtId], references: [id])
+
+  @@index([districtId, status])
+  @@map("incidents")
+}
+
+model CityAlert {
+  id           String    @id
+  module       ModuleKey
+  severity     Severity
+  title        String
+  message      String
+  districtId   String
+  acknowledged Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+
+  district District @relation(fields: [districtId], references: [id])
+
+  @@index([module, createdAt])
+  @@map("city_alerts")
+}
+
+model RiskScore {
+  id         BigInt   @id @default(autoincrement())
+  districtId String
+  floodRisk  Int
+  fireRisk   Int
+  crowdRisk  Int
+  overall    Int
+  drivers    String[]
+  recordedAt DateTime @default(now())
+
+  district District @relation(fields: [districtId], references: [id])
+
+  @@index([districtId, recordedAt])
+  @@map("risk_scores")
+}
+
+model AiRecommendation {
+  id               String   @id
+  module           ModuleKey
+  title            String
+  rationale        String
+  impact           String
+  confidence       Float
+  estimatedSavings Float?
+  priority         Severity
+  createdAt        DateTime @default(now())
+
+  @@map("ai_recommendations")
+}
