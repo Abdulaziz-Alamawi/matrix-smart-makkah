@@ -254,6 +254,7 @@ The platform runs fully in the browser using a built-in synthetic IoT data engin
 
 | Action | Link |
 |--------|------|
+| **Live site** | [matrix-smart-makkah.vercel.app](https://matrix-smart-makkah.vercel.app) |
 | **Deploy instantly** | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAbdulaziz-Alamawi%2Fmatrix-smart-makkah&project-name=matrix-smart-makkah&root-directory=apps%2Fweb) |
 | **Run locally** | `cd apps/web && npm install && npm run dev` → http://localhost:3000 |
 | **Full stack** | `docker compose up --build` |
