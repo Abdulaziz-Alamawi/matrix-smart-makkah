@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛰️ Matrix Smart Makkah
+#  Matrix Smart Makkah
 
 ### AI-Powered Smart City Operating System
 
@@ -33,7 +33,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [Project Overview](#-project-overview)
 - [Smart City Vision](#-smart-city-vision)
@@ -58,7 +58,7 @@
 
 ---
 
-## 🌆 Project Overview
+##  Project Overview
 
 **Matrix Smart Makkah** is a production-grade **Smart City Operating System** that ingests
 live IoT telemetry from across the city of Makkah, runs predictive AI models, and presents
@@ -75,7 +75,7 @@ microservice, a relational data model, real-time streaming, and containerized de
 
 ---
 
-## 🔭 Smart City Vision
+##  Smart City Vision
 
 Modern cities generate enormous volumes of sensor data, yet most of it is siloed and reactive.
 Matrix Smart Makkah is built on three principles:
@@ -92,21 +92,21 @@ changing the application tier.
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-- 🎛️ **Unified Command Center** — single pane of glass for the entire city.
-- 🗑️ **Smart Waste Management** — bin telemetry, fill-level forecasting, route optimization.
-- 🚦 **Smart Transportation** — traffic forecasting, congestion detection, mobility heatmaps.
-- 🌬️ **Environment Monitoring** — air quality, noise, temperature with environmental alerts.
-- 🛡️ **Emergency AI Core** — incident detection, flood/fire prediction, response coordination.
-- 📊 **AI Analytics Center** — historical analytics, forecast dashboards, executive reports.
-- 🧠 **Explainable AI** — risk scores and recommendations come with human-readable drivers.
-- ⚡ **Real-time streaming** — live sensor feeds over Server-Sent Events / WebSocket.
-- 🐳 **Production-ready** — Dockerized services with health checks and CI.
+-  **Unified Command Center** — single pane of glass for the entire city.
+-  **Smart Waste Management** — bin telemetry, fill-level forecasting, route optimization.
+-  **Smart Transportation** — traffic forecasting, congestion detection, mobility heatmaps.
+-  **Environment Monitoring** — air quality, noise, temperature with environmental alerts.
+-  **Emergency AI Core** — incident detection, flood/fire prediction, response coordination.
+-  **AI Analytics Center** — historical analytics, forecast dashboards, executive reports.
+-  **Explainable AI** — risk scores and recommendations come with human-readable drivers.
+-  **Real-time streaming** — live sensor feeds over Server-Sent Events / WebSocket.
+-  **Production-ready** — Dockerized services with health checks and CI.
 
 ---
 
-## 🗑️ Smart Waste Management
+##  Smart Waste Management
 
 Real-time monitoring of the city's smart-bin network with predictive collection planning.
 
@@ -119,7 +119,7 @@ Real-time monitoring of the city's smart-bin network with predictive collection 
 
 ---
 
-## 🚦 Smart Transportation
+##  Smart Transportation
 
 City-scale mobility intelligence for proactive traffic management.
 
@@ -132,7 +132,7 @@ City-scale mobility intelligence for proactive traffic management.
 
 ---
 
-## 🌬️ Smart Environment Monitoring
+##  Smart Environment Monitoring
 
 Continuous environmental sensing with automated public-health alerts.
 
@@ -145,7 +145,7 @@ Continuous environmental sensing with automated public-health alerts.
 
 ---
 
-## 🛡️ Emergency AI Core
+##  Emergency AI Core
 
 Predictive emergency intelligence and coordinated response.
 
@@ -158,7 +158,7 @@ Predictive emergency intelligence and coordinated response.
 
 ---
 
-## 🎛️ Smart City Command Center
+##  Smart City Command Center
 
 The operational heart of the platform — a unified, real-time view of the connected city.
 
@@ -171,7 +171,7 @@ The operational heart of the platform — a unified, real-time view of the conne
 
 ---
 
-## 📊 AI Analytics Center
+##  AI Analytics Center
 
 Historical analytics and forward-looking intelligence for planners and city leadership.
 
@@ -183,7 +183,7 @@ Historical analytics and forward-looking intelligence for planners and city lead
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -215,7 +215,7 @@ Historical analytics and forward-looking intelligence for planners and city lead
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 | Layer | Technologies |
 |-------|-------------|
@@ -228,7 +228,7 @@ Historical analytics and forward-looking intelligence for planners and city lead
 
 ---
 
-## ⚡ Real-Time Monitoring
+##  Real-Time Monitoring
 
 The platform streams a fresh city snapshot every few seconds, emulating a live IoT gateway.
 
@@ -248,7 +248,7 @@ The platform streams a fresh city snapshot every few seconds, emulating a live I
 
 ---
 
-## 🌐 Live Demo
+##  Live Demo
 
 The platform runs fully in the browser using a built-in synthetic IoT data engine — no database or sensor grid required.
 
@@ -265,7 +265,7 @@ After deploying, open **Command Center** at `/command-center` to explore live da
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -303,12 +303,12 @@ npx prisma db push
 npm run prisma:seed
 ```
 
-> 💡 The web app ships with a deterministic **synthetic IoT data engine**, so every dashboard is
+ The web app ships with a deterministic **synthetic IoT data engine**, so every dashboard is
 > fully live **without** a database or sensor grid — ideal for demos and evaluation.
 
 ---
 
-## 📦 Deployment Guide
+## Deployment Guide
 
 ### One-command full stack (Docker)
 
@@ -331,7 +331,7 @@ and any container platform (AWS ECS, Azure Container Apps, Google Cloud Run).
 
 ---
 
-## 📁 Folder Structure
+##  Folder Structure
 
 ```
 matrix-smart-makkah/
@@ -357,7 +357,7 @@ matrix-smart-makkah/
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 | Command Center | Smart Transportation |
 |:---:|:---:|
@@ -373,41 +373,41 @@ matrix-smart-makkah/
 
 ---
 
-## 📈 Project Statistics
+##  Project Statistics
 
 <div align="center">
 
 | | |
 |---|---|
-| 🏛️ **Full-Stack Architecture** | Polyglot Node + Python with a relational data layer |
-| 🧠 **AI-Powered Smart City Platform** | scikit-learn models across four urban domains |
-| 📡 **IoT Integration** | Live multi-sensor telemetry grid (bins, traffic, air, incidents) |
-| ⚡ **Real-Time Monitoring** | Sub-5s live streaming via SSE / WebSocket |
-| 📊 **Predictive Analytics** | District risk scoring + executive analytics |
-| 🔮 **Forecasting Models** | GradientBoosting time-series forecasting with confidence bands |
-| 🛡️ **Emergency Response Intelligence** | Incident detection, flood/fire risk, dispatch ETA |
-| 🐳 **Docker Support** | Multi-stage images + Compose orchestration |
-| 🚀 **Production-Ready Deployment** | Health checks, CI pipeline, cloud-ready config |
+|  **Full-Stack Architecture** | Polyglot Node + Python with a relational data layer |
+|  **AI-Powered Smart City Platform** | scikit-learn models across four urban domains |
+|  **IoT Integration** | Live multi-sensor telemetry grid (bins, traffic, air, incidents) |
+|  **Real-Time Monitoring** | Sub-5s live streaming via SSE / WebSocket |
+|  **Predictive Analytics** | District risk scoring + executive analytics |
+|  **Forecasting Models** | GradientBoosting time-series forecasting with confidence bands |
+|  **Emergency Response Intelligence** | Incident detection, flood/fire risk, dispatch ETA |
+|  **Docker Support** | Multi-stage images + Compose orchestration |
+|  **Production-Ready Deployment** | Health checks, CI pipeline, cloud-ready config |
 
 </div>
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
-- 🔗 **Live IoT ingestion** — replace the synthetic engine with an MQTT/Kafka device gateway.
-- 🧪 **Model registry & retraining** — scheduled retraining with MLflow and drift monitoring.
-- 🗺️ **Geospatial maps** — integrate Mapbox/Leaflet tiles for true geographic visualization.
-- 🔐 **Auth & RBAC** — operator roles, audit logs, and SSO.
-- 🧮 **TimescaleDB** — hypertables for high-volume time-series at city scale.
-- 📱 **Mobile companion** — field-operator app for dispatch and inspections.
-- ☁️ **Kubernetes Helm charts** — first-class cloud-native deployment.
+-  **Live IoT ingestion** — replace the synthetic engine with an MQTT/Kafka device gateway.
+-  **Model registry & retraining** — scheduled retraining with MLflow and drift monitoring.
+-  **Geospatial maps** — integrate Mapbox/Leaflet tiles for true geographic visualization.
+-  **Auth & RBAC** — operator roles, audit logs, and SSO.
+-  **TimescaleDB** — hypertables for high-volume time-series at city scale.
+-  **Mobile companion** — field-operator app for dispatch and inspections.
+-  **Kubernetes Helm charts** — first-class cloud-native deployment.
 
 See also [CONTRIBUTING.md](./CONTRIBUTING.md) and [SECURITY.md](./SECURITY.md).
 
 ---
 
-## 👤 Author
+##  Author
 
 **Abdulaziz AlAmawi**
 Full-Stack & AI Engineer — Smart Cities · IoT · Real-Time Systems · Predictive Analytics
